@@ -37,6 +37,7 @@ const App = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       checkForColumnsOfThree()
+      setCurrentColorArrangement([...currentColorArrangement])
     }, 100)
     return() => clearInterval(timer)
   }, [checkForColumnsOfThree])
