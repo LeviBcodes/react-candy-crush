@@ -19,13 +19,19 @@ const App = () => {
       const randomColor = candyColors[Math.floor(Math.random() * candyColors.length)]
       randomColorArrangement.push(randomColor)
     }
-    setCurrentColorArrangement()
+    setCurrentColorArrangement(randomColorArrangement)
   }
   useEffect(() => {
     createBoard()
   }, [])
   return (
-    <div></div>
+    <div className="app">
+      <div className="game">
+        {currentColorArrangement.map((candyColor,index) => (
+          <img key={index} style={{backgroundColor: candyColor}} />
+        ))}
+      </div>
+    </div>
   )
 }
 
