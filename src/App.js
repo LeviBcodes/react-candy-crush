@@ -99,7 +99,14 @@ const App = () => {
     <div className="app">
       <div className="game">
         {currentColorArrangement.map((candyColor,index) => (
-          <img key={index} alt={candyColor} style={{backgroundColor: candyColor}} />
+          <img key={index} alt={candyColor} style={{backgroundColor: candyColor}} data-id={index} 
+          onDragStart={dragStart}
+          onDragOver={(e) => e.preventDefault()}
+          onDragEnter={(e) => e.preventDefault()}
+          onDragLeave={(e) => e.preventDefault()}
+          onDrop={dragDrop}
+          onDragEnd={dragEnd}
+          } />
         ))}
       </div>
     </div>
