@@ -86,7 +86,13 @@ const App = () => {
     const squareBeingReplacedId = parseInt(squareBeingReplaced.getAttribute('data-id'))
     currentColorArrangement[squareBeingReplacedId] = squareBeingDragged.style.backgroundColor
     currentColorArrangement[squareBeingDraggedId] = squareBeingReplaced.style.backgroundColor
-
+    const validMoves = [
+      squareBeingDraggedId - 1,
+      squareBeingDraggedId - width,
+      squareBeingDraggedId + 1,
+      squareBeingDraggedId + width
+    ]
+    const validMove = validMoves.includes(squareBeingReplacedId)
   }
   const createBoard = () => {
     const randomColorArrangement = []
