@@ -82,7 +82,7 @@ const App = () => {
     setSquareBeingReplaced(e.target)
   }
   const dragEnd = (e) => {
-    
+    const squareBeingReplacedId = parseInt(squareBeingReplaced.getAttribute('data-id'))
   }
   const createBoard = () => {
     const randomColorArrangement = []
