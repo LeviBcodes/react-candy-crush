@@ -22,6 +22,7 @@ const App = () => {
       const decidedColor = currentColorArrangement[i]
       if(columnOfFour.every(square => currentColorArrangement[square] === decidedColor)) {
         columnOfFour.forEach(square => currentColorArrangement[square] = '')
+        return true
       }
     }
   }
@@ -32,6 +33,7 @@ const App = () => {
       const decidedColor = currentColorArrangement[i]
       if(columnOfThree.every(square => currentColorArrangement[square] === decidedColor)) {
         columnOfThree.forEach(square => currentColorArrangement[square] = '')
+        return true
       }
     }
   }
@@ -44,6 +46,7 @@ const App = () => {
       if(notValid.includes(i)) continue
       if(rowOfFour.every(square => currentColorArrangement[square] === decidedColor)) {
         rowOfFour.forEach(square => currentColorArrangement[square] = '')
+        return true
       }
     }
   }
@@ -56,6 +59,7 @@ const App = () => {
       if(notValid.includes(i)) continue
       if(rowOfThree.every(square => currentColorArrangement[square] === decidedColor)) {
         rowOfThree.forEach(square => currentColorArrangement[square] = '')
+        return true
       }
     }
   }
@@ -93,6 +97,14 @@ const App = () => {
       squareBeingDraggedId + width
     ]
     const validMove = validMoves.includes(squareBeingReplacedId)
+    const isAColumnOfFour = checkForColumnOfFour()
+    const isAColumnOfThree = checkForColumnOfThree()
+    const isARowOfFour = checkForRowOfFour()
+    const isARowOfThree = checkForRowOfThree()
+    if(squareBeingReplacedId && validMove && (isARowOfThree || isARowOfFour || isAColumnOfThree || isAColumnOfFour)) {
+      setSquareBeingReplaced(null)
+      setSquareBeingReplaced(null)
+    }
   }
   const createBoard = () => {
     const randomColorArrangement = []
