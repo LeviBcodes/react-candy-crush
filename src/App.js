@@ -104,6 +104,10 @@ const App = () => {
     if(squareBeingReplacedId && validMove && (isARowOfThree || isARowOfFour || isAColumnOfThree || isAColumnOfFour)) {
       setSquareBeingReplaced(null)
       setSquareBeingReplaced(null)
+    } else {
+      currentColorArrangement[squareBeingReplacedId] = squareBeingReplaced.style.backgroundColor
+      currentColorArrangement[squareBeingDraggedId] = squareBeingDragged.style.backgroundColor
+      setCurrentColorArrangement([...currentColorArrangement])
     }
   }
   const createBoard = () => {
